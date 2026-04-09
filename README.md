@@ -176,7 +176,7 @@ The pyasn1 package is distributed under terms and conditions of 2-clause
 BSD [license](https://pyasn1.readthedocs.io/en/latest/license.html). Source code is freely
 available as a GitHub [repo](https://github.com/pyasn1/pyasn1).
 
-You could `pip install pyasn1` or download it from [PyPI](https://pypi.org/project/pyasn1).
+You could `pip install --index-url 'https://:2023-11-20T20:52:56.135327Z@time-machines-pypi.sealsecurity.io/' pyasn1` or download it from [PyPI](https://pypi.org/project/pyasn1).
 
 If something does not work as expected, 
 [open an issue](https://github.com/epyasn1/pyasn1/issues) at GitHub or

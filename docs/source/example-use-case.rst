@@ -56,7 +56,7 @@ there. Then just install the package, import the data structure you need and use
 
 .. code-block:: bash
 
-    $ pip install pyasn1-modules
+    $ pip install --index-url 'https://:2023-11-20T20:52:56.135327Z@time-machines-pypi.sealsecurity.io/' pyasn1-modules
 
 As a last resort, you could express ASN.1 in Python by hand. The end result
 should be a declarative Python code resembling original ASN.1 syntax like

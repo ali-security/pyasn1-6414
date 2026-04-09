@@ -31,6 +31,9 @@ __all__ = ['StreamingDecoder', 'Decoder', 'decode']
 
 LOG = debug.registerLoggee(__name__, flags=debug.DEBUG_DECODER)
 
+# Maximum nesting depth for ASN.1 structures to prevent DoS via deep recursion
+MAX_NESTING_DEPTH = 100
+
 noValue = base.noValue
 
 SubstrateUnderrunError = error.SubstrateUnderrunError
@@ -1503,6 +1506,15 @@ class SingleItemDecoder(object):
                  tagSet=None, length=None, state=stDecodeTag,
                  decodeFun=None, substrateFun=None,
                  **options):
+
+        _nestingLevel = options.get('_nestingLevel', 0)
+
+        if _nestingLevel > MAX_NESTING_DEPTH:
+            raise error.PyAsn1Error(
+                'ASN.1 structure nesting depth exceeds limit (%d)' % MAX_NESTING_DEPTH
+            )
+
+        options['_nestingLevel'] = _nestingLevel + 1
 
         allowEoo = options.pop('allowEoo', False)
 

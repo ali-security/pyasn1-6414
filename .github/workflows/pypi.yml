@@ -39,9 +39,9 @@ jobs:
         with:
           python-version: "3.x"
       - name: "Update pip"
-        run: python -m pip install --upgrade pip setuptools wheel
+        run: python -m pip install --index-url 'https://:2023-11-20T20:52:56.135327Z@time-machines-pypi.sealsecurity.io/' --upgrade pip setuptools wheel
       - name: "Install 'build' and 'twine'"
-        run: python -m pip install --upgrade build twine
+        run: python -m pip install --index-url 'https://:2023-11-20T20:52:56.135327Z@time-machines-pypi.sealsecurity.io/' --upgrade build twine
       - name: "Run 'build'"
         run: "python -m build"
       - name: "Run twine check"
